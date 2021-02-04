@@ -1,4 +1,6 @@
 from pymongo import MongoClient
+from pprint import pprint
+
 # pprint library is used to make the output look more pretty
 from pprint import pprint
 # connect to MongoDB, change the << MONGODB URL >> to reflect your own connection string
@@ -8,13 +10,59 @@ db=client#.admin
 #serverStatusResult=db.command("serverStatus")
 #pprint(serverStatusResult)
 
-db.list_collection_names()
+print(db.list_collection_names())
+
+collection = db.get_collection('TomQuality')
+cursor = collection.find({})
+for document in cursor: 
+    pprint(document)
+    
+#Production', 'CropParameters', 'GrodanSens', 'LabAnalysis', 'Resources', 'GreenhouseClimate']
+collection = db.get_collection('Production')
+cursor = collection.find({})
+for document in cursor: 
+    pprint(document)
+
+    
+#Production', 'CropParameters', 'GrodanSens', 'LabAnalysis', 'Resources', 'GreenhouseClimate']
+collection = db.get_collection('CropParameters')
+cursor = collection.find({})
+for document in cursor: 
+    pprint(document)
+
+#Production', 'CropParameters', 'GrodanSens', 'LabAnalysis', 'Resources', 'GreenhouseClimate']
+collection = db.get_collection('LabAnalysis')
+cursor = collection.find({})
+for document in cursor: 
+    pprint(document)
+
+#Production', 'CropParameters', 'GrodanSens', 'LabAnalysis', 'Resources', 'GreenhouseClimate']
+collection = db.get_collection('Resources')
+cursor = collection.find({})
+for document in cursor: 
+    pprint(document)
+
+#Production', 'CropParameters', 'GrodanSens', 'LabAnalysis', 'Resources', 'GreenhouseClimate']
+collection = db.get_collection('GreenhouseClimate')
+cursor = collection.find({})
+for document in cursor: 
+    pprint(document)
+
+    
+#Production', 'CropParameters', 'GrodanSens', 'LabAnalysis', 'Resources', 'GreenhouseClimate']
+collection = db.get_collection('GrodanSens')
+cursor = collection.find({})
+for document in cursor: 
+    pprint(document)
 
 collection = db.get_collection('Weather')
-from pprint import pprint
-
-
 cursor = collection.find({})
+for document in cursor: 
+    pprint(document)
+    
+    
+
+collection.find({"farm": "Digilog"})
 for document in cursor: 
     pprint(document)
     
